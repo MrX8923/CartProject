@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CART</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'js/1.js' %}" defer></script>
+
+</head>
+<body>
+    {% if cart %}
+        {% for item in cart %}
+            <table>
+                <tr>
+                    <td>{{ item.product.description }}</td>
+                    <td>{{ item.count }} шт.</td>
+                    <td>{{ item.total_cost }} &#x20bd</td>
+                    <td><a href="{% url 'del' item.id %}"><button>DEL</button></a></td>
+                </tr>
+            </table>
+        {% endfor %}
+    {% else %}
+        <h2>В корзине пусто!</h2>
+    {% endif %}
+    <h2>Итого: {{ total }} &#x20bd</h2>
+    {% if cart %}
+        <a href="{% url 'del_all' %}"><button>DEL ALL</button></a>
+        <button id="final">Оформить заказ</button>
+    {% endif %}
+    <div id="result">
+        <label for="address">Город</label>
+        <input type="text" id="address" placeholder="Город"><br>
+        <label for="name">Имя</label><input type="text" id="name" placeholder="Имя"><br>
+        <label for="ph-number">Телефон</label><input type="tel" id="ph-number"><br>
+        <button id="sub-button">Подтвердить</button>
+    </div>
+</body>
+</html>

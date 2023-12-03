@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+</head>
+<body>
+    <header>
+        {% if len.cart %}
+        
+        {% endif %}
+        <a href="{% url 'to_cart' %}"><button>CART</button></a>
+    </header>
+    <main>
+        {% for product in products %}
+            <div class="product-card">
+                <img src="{% static product.image %}" alt="">
+                <p>{{ product.description }}</p>
+                <p>{{ product.price}} &#x20bd</p>
+                <a href="{% url 'buy' product.id %}"><button>BUY</button></a>
+            </div>
+        {% endfor %}
+
+
+    </main>
+    <footer></footer>
+</body>
+</html>

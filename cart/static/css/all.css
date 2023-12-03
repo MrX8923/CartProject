@@ -1,0 +1,34 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 50px;
+    background-color: goldenrod;
+}
+
+header button {
+    margin: 1%;
+    border-radius: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+main .product-card {
+    background-color: darkslategray;
+    border: 2px solid goldenrod;
+    border-radius: 20px;
+    flex-basis: 300px;
+    text-align: center;
+    color: goldenrod;
+    padding-bottom: 10px;
+    margin: 1%;
+}
+
+main .product-card img {
+    width: 100%;
+    border-radius: 20px;
+}
